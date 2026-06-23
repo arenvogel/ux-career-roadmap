@@ -135,6 +135,12 @@
   .acc .body ol li b{color:var(--ink)}
   .acc .body .out{background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-top:12px; font-size:13px}
   .acc .body .out b{color:var(--accent2)}
+  .acc .body .ai{background:linear-gradient(100deg,rgba(124,156,255,.10),rgba(91,231,196,.07));
+    border:1px solid rgba(124,156,255,.28); border-radius:8px; padding:11px 14px; margin-top:12px; font-size:13px; color:var(--mut)}
+  .acc .body .ai b{color:var(--accent)}
+  .acc .body .ai .lbl{display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:5px}
+  .acc .body .ai code{background:rgba(124,156,255,.12); color:var(--ink); padding:1px 6px; border-radius:5px; font-size:12px}
   .acc .body .tools{font-size:12.5px; color:var(--dim); margin-top:10px}
   @media(min-width:560px){.expand-controls{display:flex; gap:14px; margin:6px 0 16px}}
   .expand-controls a{font-size:13px; color:var(--mut); cursor:pointer}
@@ -259,6 +265,7 @@
         <li><b>List your 3 proof points</b> in a sentence each — the evidence you'll back the claim with (a teardown, a study, an AI build). These become your case studies below.</li>
         <li><b>Stress-test it:</b> read 5 real target job posts, and make sure your one-liner uses words that appear in them (content, messaging, research, strategy, AI).</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Paste 5 job descriptions into an LLM and ask it to <i>"extract the 15 most common skills and keywords, then draft 3 headline options and a positioning sentence that use them."</i> Generate 10 variations, then pick and edit — AI is faster at divergent options than you are at a blank page.</div>
       <div class="out"><b>Output:</b> one headline + one positioning sentence + three proof points, saved in a doc you'll reuse on every profile.</div>
     </div>
   </details>
@@ -273,6 +280,7 @@
         <li><b>Add an "AI toolkit" strip</b> naming the specific tools you use (LLM, no-code builder, research tool) — this is your differentiator, make it visible.</li>
         <li><b>Ship it half-finished.</b> Publish with one case study live and "2 more coming" — a live URL beats a perfect draft.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Use a no-code/AI site builder (<code>Lovable</code>, <code>v0</code>, <code>Framer AI</code>) — describe the page and let it generate the layout, then drop your content in. Ask an LLM to <i>"write a warm 80-word About section from these facts"</i> and to proofread every page. Building this <i>with</i> AI is itself a talking point.</div>
       <div class="out"><b>Output:</b> one public URL you can paste into every application.</div>
       <div class="tools">Tools: Notion / Framer / Read.cv</div>
     </div>
@@ -289,6 +297,7 @@
         <li><b>Show it in context:</b> paste your new copy over the screenshots (Google Slides or FigJam — drag text onto the image, no design skill).</li>
         <li><b>Write the narrative:</b> Context → Problem → What I did → Outcome/learning → Tools. ~400 words.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Feed the screenshots/copy to a multimodal LLM and ask it to <i>"critique this UX copy and list every clarity, tone, and next-step problem."</i> Then have it generate 3 rewrite options per string so you can choose — and ask it to <i>"name the UX-writing principle behind each change"</i> to sharpen your narrative. <b>You</b> make the final calls; AI accelerates the audit and the drafting.</div>
       <div class="out"><b>Output:</b> a before/after content case study proving you think in systems, not just sentences.</div>
       <div class="tools">Tools: Google Docs/Slides · screenshots · FigJam (free)</div>
     </div>
@@ -305,6 +314,7 @@
         <li><b>Turn findings into recommendations</b> — each finding paired with a concrete fix and a rough severity.</li>
         <li><b>Write it up</b> with the affinity-map screenshot, the 3 findings, the recommendations, and what you'd do next with more time/budget.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Use AI to <i>generate a discussion guide</i> and task scenarios up front, <i>auto-transcribe</i> the sessions (Otter, or your meeting tool), then paste transcripts in and ask it to <i>"cluster these observations into themes and surface the top 3 findings with supporting quotes."</i> Verify every theme against the raw transcript yourself — AI speeds synthesis, but you own the findings.</div>
       <div class="out"><b>Output:</b> an end-to-end research story — question → method → synthesis → recommendation. Doubles as asset #5.</div>
       <div class="tools">Tools: Google Meet/Forms · FigJam (free) · Maze (free tier)</div>
     </div>
@@ -320,6 +330,7 @@
         <li><b>Document the AI workflow explicitly:</b> the prompting approach, the no-code stack, any iterations. Hiring managers want to see you can <i>ship</i> with AI.</li>
         <li><b>Include a screenshot or short Loom</b> of it working. Proof it's real.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>This case study <i>is</i> the AI story — make the workflow the star. Show the actual prompts you wrote, the no-code stack, and the iterations. Ask an LLM to <i>"interview me about this project and turn my answers into a structured case study"</i> — answering its questions out loud is the fastest way to write the narrative.</div>
       <div class="out"><b>Output:</b> a "I ship with AI" case study — your single strongest differentiator across all three top-3 bets.</div>
       <div class="tools">Tools: your existing build · Loom · a screenshot</div>
     </div>
@@ -335,6 +346,7 @@
         <li><b>Write the landing-page hero:</b> headline, subhead, CTA button text.</li>
         <li><b>Add 2 social posts + 1 launch email</b> — same message, adapted to each channel's voice.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Have an LLM draft the positioning statement and 5 value-prop angles, then <i>you</i> choose and sharpen. Ask it to <i>"adapt this core message into a LinkedIn post, an X post, and a launch email, each in the right voice and length."</i> Use an image AI (<code>Canva</code>, <code>Midjourney</code>) for a quick hero mockup. Editing AI drafts is exactly the modern content workflow these roles hire for.</div>
       <div class="out"><b>Output:</b> a one-page launch pack showing range from strategy (positioning) to execution (copy).</div>
       <div class="tools">Tools: Google Docs · optional Canva for the hero mockup</div>
     </div>
@@ -350,6 +362,7 @@
         <li><b>Final slide — the recommendation</b> and projected impact. End on the "so what."</li>
         <li><b>Design it plainly:</b> a clean template, lots of white space. Clarity reads as senior; decoration doesn't.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Paste your findings and ask an LLM to <i>"structure these into a 6-slide insights narrative with a one-line takeaway per slide."</i> Use an AI deck tool (<code>Gamma</code>, <code>Pitch</code>, or Google Slides' Gemini) to generate the formatted slides from your outline so you spend time on the <i>story</i>, not the layout.</div>
       <div class="out"><b>Output:</b> a 6-slide deck proving you can turn raw research into a decision a team can act on.</div>
       <div class="tools">Tools: Google Slides / Pitch · reuse 3b</div>
     </div>
@@ -365,6 +378,7 @@
         <li><b>Set the LinkedIn headline to your hybrid title</b> from asset #1, and add the portfolio URL to the featured/contact section.</li>
         <li><b>Turn on "Open to work"</b> for your target titles and the Tel Aviv + remote regions.</li>
       </ol>
+      <div class="ai"><span class="lbl">✦ AI assist</span><br>Paste a target job description plus your CV and ask an LLM to <i>"rewrite my bullets to mirror this role's keywords and lead each with an outcome"</i> — then make a tailored version per application. Have it <i>"draft a LinkedIn headline and About section in the first person"</i> and run an ATS-keyword gap check against each posting. Always edit for truth and your own voice.</div>
       <div class="out"><b>Output:</b> a keyword-tuned CV + LinkedIn that point straight at your portfolio — recruiters find people this way.</div>
       <div class="tools">Tools: your portfolio URL · 10 target job posts</div>
     </div>
