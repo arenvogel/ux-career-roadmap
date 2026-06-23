@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX → Adjacent Roles · Tel Aviv Career Roadmap 2026</title>
+<meta name="description" content="A focused action plan for pivoting UX writing & research skills into adjacent roles in the Tel Aviv market — with live opportunity sizing, company leads, a portfolio sprint, and a skills checklist.">
+<style>
+  :root{
+    --bg:#0d0f14; --panel:#151922; --panel2:#1b2030; --line:#262d3d;
+    --ink:#e8ecf4; --mut:#9aa6bd; --dim:#6c7891;
+    --accent:#7c9cff; --accent2:#5be7c4; --warm:#ffb86b; --gold:#ffd166;
+    --rad:14px; --maxw:920px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:radial-gradient(1200px 600px at 70% -200px,#1a2233 0%,var(--bg) 55%) no-repeat,var(--bg);
+    color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+    background:rgba(13,15,20,.78); border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex; gap:18px; align-items:center; height:56px; overflow-x:auto}
+  nav a{color:var(--mut); font-size:13.5px; font-weight:500; white-space:nowrap}
+  nav a:hover{color:var(--ink); text-decoration:none}
+  nav .brand{color:var(--ink); font-weight:700; margin-right:6px}
+
+  /* hero */
+  header{padding:72px 0 40px}
+  .tag{display:inline-block; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent2); border:1px solid var(--line); padding:5px 12px; border-radius:999px; margin-bottom:20px}
+  h1{font-size:clamp(30px,5vw,46px); line-height:1.1; margin:0 0 16px; letter-spacing:-.02em}
+  h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{font-size:18px; color:var(--mut); max-width:680px; margin:0 0 28px}
+  .cta{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-block; padding:11px 18px; border-radius:10px; font-weight:600; font-size:14.5px}
+  .btn.p{background:linear-gradient(100deg,var(--accent),#6f8cff); color:#0b1020}
+  .btn.s{border:1px solid var(--line); color:var(--ink)}
+  .btn:hover{text-decoration:none; filter:brightness(1.08)}
+
+  section{padding:42px 0; border-top:1px solid var(--line)}
+  h2{font-size:25px; letter-spacing:-.01em; margin:0 0 6px}
+  h2 .n{color:var(--dim); font-weight:600; margin-right:10px}
+  .sub{color:var(--mut); margin:0 0 22px; max-width:720px}
+  h3{font-size:17px; margin:26px 0 8px}
+
+  /* table */
+  .tbl{width:100%; border-collapse:collapse; font-size:14px; margin:8px 0 4px; overflow:hidden; border-radius:12px}
+  .tbl th,.tbl td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+  .tbl thead th{background:var(--panel2); color:var(--mut); font-size:12px; text-transform:uppercase; letter-spacing:.05em; font-weight:600}
+  .tbl tbody tr:hover{background:var(--panel)}
+  .scroll{overflow-x:auto; border:1px solid var(--line); border-radius:12px}
+  .pill{display:inline-block; padding:2px 9px; border-radius:999px; font-size:11.5px; font-weight:600; white-space:nowrap}
+  .vh{background:rgba(91,231,196,.14); color:var(--accent2)}
+  .vm{background:rgba(255,209,102,.14); color:var(--gold)}
+  .vl{background:rgba(255,138,107,.14); color:var(--warm)}
+  .he{color:var(--dim); font-size:12.5px}
+
+  /* cards */
+  .cards{display:grid; gap:14px; grid-template-columns:1fr}
+  @media(min-width:720px){.cards.three{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--rad); padding:18px}
+  .card .rank{font-size:13px; color:var(--gold); font-weight:700; letter-spacing:.04em}
+  .card h4{margin:6px 0 8px; font-size:17px}
+  .card p{margin:0 0 8px; font-size:14px; color:var(--mut)}
+  .card .gap{font-size:13px; color:var(--dim)}
+  .card .lead{font-size:13px; color:var(--accent); margin-top:8px}
+
+  ul.clean{padding-left:0; list-style:none; margin:10px 0}
+  ul.clean li{padding:9px 0 9px 26px; position:relative; border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:0}
+  ul.clean li::before{content:"›"; position:absolute; left:6px; top:8px; color:var(--accent); font-weight:700}
+  .k{color:var(--ink); font-weight:600}
+
+  /* timeline */
+  .week{display:grid; grid-template-columns:64px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid var(--line)}
+  .week:last-child{border-bottom:0}
+  .week .w{font-size:12px; font-weight:700; color:var(--accent2); text-transform:uppercase; letter-spacing:.06em; padding-top:2px}
+  .week .b{font-size:14.5px}
+  .week .b b{color:var(--ink)}
+
+  /* leads grid */
+  .leads{display:grid; gap:12px; grid-template-columns:1fr}
+  @media(min-width:640px){.leads{grid-template-columns:1fr 1fr}}
+  .lead-card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px}
+  .lead-card h4{margin:0 0 8px; font-size:14px; color:var(--mut); text-transform:uppercase; letter-spacing:.05em}
+  .lead-card a{display:block; padding:4px 0; font-size:14px}
+
+  .tiers{display:grid; gap:14px; grid-template-columns:1fr}
+  @media(min-width:720px){.tiers{grid-template-columns:repeat(3,1fr)}}
+  .tier{background:var(--panel); border:1px solid var(--line); border-radius:var(--rad); padding:16px}
+  .tier.t1{border-color:rgba(91,231,196,.3)}
+  .tier h4{margin:0 0 4px; font-size:15px}
+  .tier .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px}
+  .tier ul{margin:0; padding-left:18px; font-size:13.5px; color:var(--mut)}
+  .tier li{margin:6px 0}
+
+  .note{background:var(--panel2); border:1px solid var(--line); border-left:3px solid var(--warm);
+    border-radius:8px; padding:12px 16px; font-size:13.5px; color:var(--mut); margin:18px 0}
+
+  footer{padding:40px 0 60px; color:var(--dim); font-size:13px; border-top:1px solid var(--line); text-align:center}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">Career Roadmap</span>
+  <a href="#roles">Adjacent roles</a>
+  <a href="#top3">Top 3</a>
+  <a href="#leads">Leads</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#skills">Skills</a>
+  <a href="#sprint">4-week sprint</a>
+</div></nav>
+
+<header><div class="wrap">
+  <span class="tag">Tel Aviv market · 2026</span>
+  <h1>From UX writing &amp; research to <span class="grad">where the jobs actually are</span></h1>
+  <p class="lede">You don't have a skills problem — you have a proof problem. Your UX writing, research, and AI-tool fluency transfer into a far larger pool than "product designer." This is the focused plan: the roles, the live opportunity sizing, real company leads, and a 4-week sprint to build the portfolio that gets you hired.</p>
+  <div class="cta">
+    <a class="btn p" href="#top3">See the top 3 bets</a>
+    <a class="btn s" href="#sprint">Jump to the sprint</a>
+  </div>
+</div></header>
+
+<section id="roles"><div class="wrap">
+  <h2><span class="n">01</span>Adjacent domains, ranked</h2>
+  <p class="sub">Ranked by <b>opportunity = volume × ease of transition</b> for your profile. Volume bands and Hebrew requirements are flagged per role. All counts are directional live-board estimates (Glassdoor IL, LinkedIn IL, Built In, Secret Tel Aviv) — read the <b>bands</b>, not exact numbers.</p>
+  <div class="scroll"><table class="tbl">
+    <thead><tr><th>#</th><th>Role</th><th>Why it transfers</th><th>Gap to close</th><th>TLV volume</th><th>Hebrew</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Customer Success / CS Ops</b></td><td>User empathy, comms, synthesizing needs</td><td>SaaS metrics, CRM (Gainsight)</td><td><span class="pill vh">Very High ~740</span></td><td class="he">English-friendly</td></tr>
+      <tr><td>2</td><td><b>Content Marketing / Strategy</b></td><td>Writing, narrative, audience research, AI content</td><td>SEO, funnel/analytics</td><td><span class="pill vh">High ~175</span></td><td class="he">English-first</td></tr>
+      <tr><td>3</td><td><b>Product Marketing (PMM)</b></td><td>Messaging, positioning, storytelling</td><td>Competitive analysis, GTM</td><td><span class="pill vh">High ~545 IL</span></td><td class="he">English-first</td></tr>
+      <tr><td>4</td><td><b>User / UX Researcher (qual)</b></td><td>Direct match — interviews, synthesis</td><td>Quant methods, research ops</td><td><span class="pill vm">Med-High ~89 IL</span></td><td class="he">English-friendly</td></tr>
+      <tr><td>5</td><td><b>Conversation / Chatbot Designer</b></td><td>UX writing <i>is</i> conversation design</td><td>Voiceflow, Dialogflow</td><td><span class="pill vm">Low-Med, rising</span></td><td class="he">English-friendly</td></tr>
+      <tr><td>6</td><td><b>AI Content / Prompt Specialist</b></td><td>Your AI no-code work, writing, eval</td><td>Prompt rigor, eval frameworks</td><td><span class="pill vm">Med, fast growth</span></td><td class="he">Hebrew = bonus</td></tr>
+      <tr><td>7</td><td><b>Technical Writer</b></td><td>Clear writing, task empathy, AI drafting</td><td>Docs tooling (Markdown, Git)</td><td><span class="pill vm">Medium ~17–41</span></td><td class="he">Mostly English</td></tr>
+      <tr><td>8</td><td><b>CX / Insights Analyst</b></td><td>Research synthesis, VoC</td><td>SQL, dashboards</td><td><span class="pill vm">Medium</span></td><td class="he">English-friendly</td></tr>
+      <tr><td>9</td><td><b>AI Trainer / RLHF (freelance)</b></td><td>Language judgment, evaluation</td><td>Minimal — entry-friendly</td><td><span class="pill vh">High (remote)</span></td><td class="he">Hebrew = paid premium</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>Avoid without strong Hebrew:</b> localization (needs native Heb↔Eng), local community management, and internal instructional design.</div>
+</div></section>
+
+<section id="top3"><div class="wrap">
+  <h2><span class="n">02</span>The top 3 bets</h2>
+  <p class="sub">Where to actually point your energy — best blend of volume, English-friendliness, and skill transfer.</p>
+  <div class="cards three">
+    <div class="card">
+      <div class="rank">🥇 PRIMARY</div>
+      <h4>Content Marketing / Strategy</h4>
+      <p>Best blend of volume, English-friendliness, and near-direct transfer. Your AI no-code portfolio is a <b>differentiator</b> here, not a weakness.</p>
+      <div class="gap">Gap: a weekend of SEO + funnel/analytics (HubSpot free certs).</div>
+      <div class="lead">→ Wix · Monday.com · Fiverr · Similarweb</div>
+    </div>
+    <div class="card">
+      <div class="rank">🥈 FASTEST LANDING</div>
+      <h4>Customer Success / Insights</h4>
+      <p>Sheer volume (~740 TLV) = highest-probability fast landing, and the most English-friendly category in Israel. Enter as CS Associate → grow into Insights Analyst.</p>
+      <div class="gap">Gap: SaaS/CRM fluency, commercial framing.</div>
+      <div class="lead">→ Secret Tel Aviv board · Similarweb</div>
+    </div>
+    <div class="card">
+      <div class="rank">🥉 STAY-IN-LANE PAIR</div>
+      <h4>Conversation Design + UX Research</h4>
+      <p>Conversation design is literally UX writing applied to dialogue — highest skill-fit, no Figma, rising AI category. Run in parallel, not as the sole bet.</p>
+      <div class="gap">Gap: Voiceflow/Dialogflow + quant methods.</div>
+      <div class="lead">→ Israeli AI startups · global researcher roles</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="leads"><div class="wrap">
+  <h2><span class="n">03</span>Concrete leads</h2>
+  <p class="sub">Start with the English-language boards, then go direct to company careers pages in your lanes.</p>
+  <div class="leads">
+    <div class="lead-card">
+      <h4>Job boards — start here</h4>
+      <a href="https://jobs.secrettelaviv.com/" target="_blank" rel="noopener">Secret Tel Aviv — biggest English board ↗</a>
+      <a href="https://il.linkedin.com/jobs/content-designer-jobs" target="_blank" rel="noopener">LinkedIn IL — content designer ↗</a>
+      <a href="https://il.linkedin.com/jobs/ux-research-jobs" target="_blank" rel="noopener">LinkedIn IL — UX research ↗</a>
+      <a href="https://il.linkedin.com/jobs/customer-success-jobs" target="_blank" rel="noopener">LinkedIn IL — customer success ↗</a>
+      <a href="https://builtin.com/jobs/mena/israel" target="_blank" rel="noopener">Built In Israel ↗</a>
+    </div>
+    <div class="lead-card">
+      <h4>Companies hiring in your lanes</h4>
+      <a href="https://careers.wix.com/positions" target="_blank" rel="noopener">Wix — UX writing + content org ↗</a>
+      <a href="https://careers.lightricks.com/" target="_blank" rel="noopener">Lightricks — had a live UX Writer role ↗</a>
+      <a href="https://monday.com/careers" target="_blank" rel="noopener">Monday.com — content / PMM / CS ↗</a>
+      <a href="https://www.similarweb.com/corp/careers/" target="_blank" rel="noopener">Similarweb — PMM + Insights Analyst ↗</a>
+      <a href="https://www.hibob.com/careers/" target="_blank" rel="noopener">HiBob — PMM / messaging ↗</a>
+    </div>
+    <div class="lead-card">
+      <h4>Income now + a resume line</h4>
+      <p style="color:var(--mut);font-size:13.5px;margin:0 0 8px">Remote AI-training pays ~$22.5/hr and adds a credible "LLM evaluation / RLHF" credential that strengthens applications to all three top bets. Hebrew is a paid premium.</p>
+      <a href="https://outlier.ai/languages/he-il" target="_blank" rel="noopener">Outlier AI — Hebrew track ↗</a>
+      <a href="https://www.opentrain.ai/become-freelancer/" target="_blank" rel="noopener">OpenTrain AI (Israeli) ↗</a>
+    </div>
+    <div class="lead-card">
+      <h4>Also worth a look</h4>
+      <p style="color:var(--mut);font-size:13.5px;margin:0">Fiverr, Riverside, Artlist, Gong (content) · Placer.ai, Via, Navina, Cognyte (UX research) · Moon Active, Nexar (content marketing).</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="wrap">
+  <h2><span class="n">04</span>The portfolio — assets to build</h2>
+  <p class="sub">Hiring managers in writing / research / content / PMM roles hire on <b>artifacts, not credentials</b>. They want process, not pixels — which means Figma polish matters far less than you fear. Build these in order; each is a weekend-sized deliverable.</p>
+  <ul class="clean">
+    <li><span class="k">1 · Positioning one-liner + retitled identity.</span> Lead with a hybrid title recruiters search for — "UX Writer &amp; Content Designer." One sentence: <i>"I turn messy product problems into clear words and tested decisions — including with AI tools that let me prototype faster than most."</i></li>
+    <li><span class="k">2 · A 1-page portfolio site.</span> Notion public page, Framer, or Read.cv — zero design skill needed. Hero line → 3 case studies → about → contact. <i>(This site can be that home.)</i></li>
+    <li><span class="k">3a · Case study — UX writing.</span> Audit a real app's bad copy, redesign one flow's content (onboarding, empty states, errors, paywall). Show before/after. Needs only a doc + screenshots.</li>
+    <li><span class="k">3b · Case study — research.</span> Run one small real study: recruit 5 people, test a product/prototype, synthesize into an affinity map + 3 findings + recommendations. Tools: Google Meet, FigJam free, a Maze test.</li>
+    <li><span class="k">3c · Case study — your AI edge.</span> Document one AI no-code build as a <i>product</i> case study: problem, user, what you built, what you'd test next. This separates you from every other junior applicant.</li>
+    <li><span class="k">4 · Messaging sample pack (for PMM / content).</span> A mock launch: positioning statement, 3 value props, a landing hero, 2 social posts, one email. One page.</li>
+    <li><span class="k">5 · Insights deck (for research / CX / strategy).</span> A question, a method, 3 slides of findings, a recommendation. Reuse from 3b.</li>
+    <li><span class="k">6 · Tuned CV + LinkedIn.</span> Mirror the keywords of your target roles. Make AI-tool fluency a named skill block, not a footnote.</li>
+  </ul>
+  <h3>How to brainstorm work when you have no client projects</h3>
+  <ul class="clean">
+    <li><span class="k">Teardowns / redesigns</span> — pick a product with a visible flaw and fix it. Unlimited supply, shows judgment.</li>
+    <li><span class="k">Speculative projects</span>, clearly labeled — accepted for juniors as long as the <i>process</i> is real.</li>
+    <li><span class="k">Volunteer / nonprofit work</span> — a real stakeholder = a stronger story.</li>
+    <li><span class="k">"Rewrite of the week"</span> — post one microcopy teardown weekly. Doubles as portfolio <i>and</i> recruiter visibility.</li>
+    <li><span class="k">Reframe your AI builds</span> — each one already <i>is</i> a case study; you just haven't written the narrative.</li>
+    <li><span class="k">3 strong case studies beats 8 thin ones.</span> Depth signals seniority.</li>
+  </ul>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2><span class="n">05</span>Hard skills to learn — ranked by ROI</h2>
+  <p class="sub">You don't need to become a Figma expert. You need <i>enough</i> tool fluency to not get filtered out — then lean into words, research, and AI-shipping.</p>
+  <div class="tiers">
+    <div class="tier t1">
+      <h4>Tier 1 — learn now</h4>
+      <div class="lbl">High value · low effort</div>
+      <ul>
+        <li><b>Figma — basic literacy only.</b> Open files, comment, navigate, FigJam. A weekend. Don't over-invest.</li>
+        <li><b>One research tool:</b> Dovetail (synthesis) or Maze (testing). Run one study, name it.</li>
+        <li><b>AI tooling, made explicit:</b> prompt engineering + an LLM + one no-code builder (Lovable, Bolt, v0). Your edge — name the tools.</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h4>Tier 2 — high leverage</h4>
+      <div class="lbl">For adjacent roles</div>
+      <ul>
+        <li><b>Analytics:</b> GA4, Amplitude, or Mixpanel basics (PMM, CX, product).</li>
+        <li><b>Notion / Confluence</b> + a content-ops mindset.</li>
+        <li><b>SEO + content marketing</b> — HubSpot Academy free certs. Fast and resume-legible.</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h4>Tier 3 — situational</h4>
+      <div class="lbl">Role-dependent</div>
+      <ul>
+        <li><b>SQL basics</b> — big differentiator for research/analyst roles.</li>
+        <li><b>Hebrew↔English UX writing</b> — marketable in this market specifically.</li>
+        <li><b>Webflow / Framer</b> — if leaning into content + light build.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>Don't spend time on:</b> deep visual/UI design, motion, design-systems mastery. That's chasing the gap you already decided not to compete in.</div>
+</div></section>
+
+<section id="sprint"><div class="wrap">
+  <h2><span class="n">06</span>The forcing function: a 4-week "Ship in Public" sprint</h2>
+  <p class="sub">Motivation evaporates without an external deadline. Announce on LinkedIn: <i>"For the next 4 weeks I'm publishing one UX writing/research teardown every Friday."</i> Public commitment + weekly cadence = built-in accountability <i>and</i> recruiter visibility at once.</p>
+  <div class="week"><div class="w">Week 1</div><div class="b"><b>Content teardown.</b> Audit a real app's copy, publish the before/after redesign. → Case study 3a.</div></div>
+  <div class="week"><div class="w">Week 2</div><div class="b"><b>AI-build case study.</b> Write the narrative around one of your no-code projects. → Case study 3c, your differentiator.</div></div>
+  <div class="week"><div class="w">Week 3</div><div class="b"><b>Research study.</b> Run the 5-person study, publish the insights deck. → Case study 3b + 5.</div></div>
+  <div class="week"><div class="w">Week 4</div><div class="b"><b>Messaging pack.</b> Mock launch for a product you love. → Asset 4, aimed at content/PMM roles.</div></div>
+  <div class="note"><b>Two more forcing functions to stack:</b> (1) <b>Apply backwards from job descriptions</b> — pull 10 real TLV posts, extract every required tool, build the portfolio piece that proves each. The market becomes your curriculum. (2) <b>Weekly review</b> — book a recurring 20-min slot with someone who gets a deliverable every Friday. External eyes = accountability.</div>
+  <p class="sub" style="margin-top:24px">End state after 4 weeks: a full 3-case-study portfolio, 4 posts of recruiter reach, the Tier-1 skills named on your CV, and an income stream running. Then point applications at the top-3 bets.</p>
+</div></section>
+
+<footer><div class="wrap">
+  Built as a focused career plan · Tel Aviv market, June 2026 · All opening counts are directional live-board estimates and fluctuate week to week.
+</div></footer>
+
+</body>
+</html>
