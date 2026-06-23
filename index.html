@@ -100,9 +100,44 @@
   .tier .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px}
   .tier ul{margin:0; padding-left:18px; font-size:13.5px; color:var(--mut)}
   .tier li{margin:6px 0}
+  .skill{padding:12px 0; border-bottom:1px solid var(--line)}
+  .skill:last-child{border-bottom:0; padding-bottom:0}
+  .skill .sname{font-size:14px; color:var(--ink); font-weight:600}
+  .skill .sdesc{font-size:13px; color:var(--mut); margin:3px 0 8px}
+  .lk{display:flex; flex-wrap:wrap; gap:7px}
+  .lk a{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600;
+    padding:4px 10px; border-radius:7px; border:1px solid var(--line); color:var(--mut); white-space:nowrap}
+  .lk a:hover{text-decoration:none; color:var(--ink); border-color:var(--accent)}
+  .lk a.yt{color:#ff8a8a; border-color:rgba(255,138,138,.3)}
+  .lk a.yt:hover{border-color:#ff8a8a; color:#ffb0b0}
+  .lk a.doc:hover{color:var(--accent2); border-color:var(--accent2)}
 
   .note{background:var(--panel2); border:1px solid var(--line); border-left:3px solid var(--warm);
     border-radius:8px; padding:12px 16px; font-size:13.5px; color:var(--mut); margin:18px 0}
+
+  /* accordion */
+  .acc{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:10px 0; background:var(--panel)}
+  .acc[open]{border-color:rgba(124,156,255,.4)}
+  .acc summary{list-style:none; cursor:pointer; padding:14px 16px; display:flex; align-items:center; gap:12px;
+    font-size:15px; font-weight:600; color:var(--ink); user-select:none}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary:hover{background:var(--panel2)}
+  .acc summary .num{flex:0 0 auto; width:26px; height:26px; border-radius:7px; display:grid; place-items:center;
+    background:rgba(124,156,255,.14); color:var(--accent); font-size:12.5px; font-weight:700}
+  .acc summary .ttl{flex:1}
+  .acc summary .meta{font-size:11.5px; font-weight:600; color:var(--dim); text-transform:uppercase; letter-spacing:.05em; white-space:nowrap}
+  .acc summary .chev{flex:0 0 auto; color:var(--dim); transition:transform .2s; font-size:13px}
+  .acc[open] summary .chev{transform:rotate(90deg); color:var(--accent)}
+  .acc .body{padding:2px 18px 18px 54px; font-size:14px; color:var(--mut)}
+  .acc .body p{margin:6px 0 12px}
+  .acc .body ol{margin:8px 0; padding-left:18px}
+  .acc .body ol li{margin:7px 0; padding-left:4px}
+  .acc .body ol li b{color:var(--ink)}
+  .acc .body .out{background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-top:12px; font-size:13px}
+  .acc .body .out b{color:var(--accent2)}
+  .acc .body .tools{font-size:12.5px; color:var(--dim); margin-top:10px}
+  @media(min-width:560px){.expand-controls{display:flex; gap:14px; margin:6px 0 16px}}
+  .expand-controls a{font-size:13px; color:var(--mut); cursor:pointer}
 
   footer{padding:40px 0 60px; color:var(--dim); font-size:13px; border-top:1px solid var(--line); text-align:center}
 </style>
@@ -212,58 +247,310 @@
 
 <section id="portfolio"><div class="wrap">
   <h2><span class="n">04</span>The portfolio — assets to build</h2>
-  <p class="sub">Hiring managers in writing / research / content / PMM roles hire on <b>artifacts, not credentials</b>. They want process, not pixels — which means Figma polish matters far less than you fear. Build these in order; each is a weekend-sized deliverable.</p>
-  <ul class="clean">
-    <li><span class="k">1 · Positioning one-liner + retitled identity.</span> Lead with a hybrid title recruiters search for — "UX Writer &amp; Content Designer." One sentence: <i>"I turn messy product problems into clear words and tested decisions — including with AI tools that let me prototype faster than most."</i></li>
-    <li><span class="k">2 · A 1-page portfolio site.</span> Notion public page, Framer, or Read.cv — zero design skill needed. Hero line → 3 case studies → about → contact. <i>(This site can be that home.)</i></li>
-    <li><span class="k">3a · Case study — UX writing.</span> Audit a real app's bad copy, redesign one flow's content (onboarding, empty states, errors, paywall). Show before/after. Needs only a doc + screenshots.</li>
-    <li><span class="k">3b · Case study — research.</span> Run one small real study: recruit 5 people, test a product/prototype, synthesize into an affinity map + 3 findings + recommendations. Tools: Google Meet, FigJam free, a Maze test.</li>
-    <li><span class="k">3c · Case study — your AI edge.</span> Document one AI no-code build as a <i>product</i> case study: problem, user, what you built, what you'd test next. This separates you from every other junior applicant.</li>
-    <li><span class="k">4 · Messaging sample pack (for PMM / content).</span> A mock launch: positioning statement, 3 value props, a landing hero, 2 social posts, one email. One page.</li>
-    <li><span class="k">5 · Insights deck (for research / CX / strategy).</span> A question, a method, 3 slides of findings, a recommendation. Reuse from 3b.</li>
-    <li><span class="k">6 · Tuned CV + LinkedIn.</span> Mirror the keywords of your target roles. Make AI-tool fluency a named skill block, not a footnote.</li>
-  </ul>
+  <p class="sub">Hiring managers in writing / research / content / PMM roles hire on <b>artifacts, not credentials</b>. They want process, not pixels — which means Figma polish matters far less than you fear. Build these in order; each is a weekend-sized deliverable. <b>Click any asset to expand the step-by-step.</b></p>
+  <p class="expand-controls"><a onclick="document.querySelectorAll('#portfolio .acc').forEach(d=>d.open=true)">Expand all</a><a onclick="document.querySelectorAll('#portfolio .acc').forEach(d=>d.open=false)">Collapse all</a></p>
+
+  <details class="acc"><summary><span class="num">1</span><span class="ttl">Positioning one-liner &amp; retitled identity</span><span class="meta">~1 hr</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>Before any artifact, fix how you're labeled — recruiters for adjacent roles search by keyword, and "UX designer" filters you toward the Figma jobs you don't want.</p>
+      <ol>
+        <li><b>Pick a hybrid title</b> you'll lead with everywhere (LinkedIn headline, CV, portfolio hero): "UX Writer &amp; Content Designer" or "UX Researcher / Content Strategist." Match it to whichever top-3 bet you're prioritizing.</li>
+        <li><b>Write one positioning sentence.</b> Template: <i>"I turn messy product problems into clear words and tested decisions — including with AI tools that let me prototype faster than most."</i> Edit it to sound like you.</li>
+        <li><b>List your 3 proof points</b> in a sentence each — the evidence you'll back the claim with (a teardown, a study, an AI build). These become your case studies below.</li>
+        <li><b>Stress-test it:</b> read 5 real target job posts, and make sure your one-liner uses words that appear in them (content, messaging, research, strategy, AI).</li>
+      </ol>
+      <div class="out"><b>Output:</b> one headline + one positioning sentence + three proof points, saved in a doc you'll reuse on every profile.</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">2</span><span class="ttl">A 1-page portfolio site</span><span class="meta">half day</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The home that everything links to. Zero design skill required — content carries it. <i>(This very site can be that home.)</i></p>
+      <ol>
+        <li><b>Pick the easiest tool:</b> a public Notion page (free, fastest), Framer, or Read.cv. Don't shop tools for more than 20 minutes.</li>
+        <li><b>Use this structure, top to bottom:</b> hero line (your one-liner) → 3 case-study cards → short "about" → contact (email + LinkedIn).</li>
+        <li><b>Write each case-study card as a teaser:</b> title, one-line problem, the outcome, a thumbnail. Each links to the full case study.</li>
+        <li><b>Add an "AI toolkit" strip</b> naming the specific tools you use (LLM, no-code builder, research tool) — this is your differentiator, make it visible.</li>
+        <li><b>Ship it half-finished.</b> Publish with one case study live and "2 more coming" — a live URL beats a perfect draft.</li>
+      </ol>
+      <div class="out"><b>Output:</b> one public URL you can paste into every application.</div>
+      <div class="tools">Tools: Notion / Framer / Read.cv</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">3a</span><span class="ttl">Case study — UX writing / content design</span><span class="meta">1 weekend</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The fastest credible artifact, and it needs only a doc and screenshots — no Figma.</p>
+      <ol>
+        <li><b>Pick a real app</b> you use that has weak copy (banking, fitness, a SaaS trial). Real product = real stakes in the story.</li>
+        <li><b>Choose one flow</b> to fix: onboarding, an empty state, error messages, a paywall, or a confirmation. One flow, done deeply.</li>
+        <li><b>Screenshot the "before"</b> and annotate what's wrong — vague, jargon, no next step, wrong tone. This is the research.</li>
+        <li><b>Rewrite the copy</b> as a before/after table. State the principle behind each change (clarity, voice, reduce anxiety, drive action).</li>
+        <li><b>Show it in context:</b> paste your new copy over the screenshots (Google Slides or FigJam — drag text onto the image, no design skill).</li>
+        <li><b>Write the narrative:</b> Context → Problem → What I did → Outcome/learning → Tools. ~400 words.</li>
+      </ol>
+      <div class="out"><b>Output:</b> a before/after content case study proving you think in systems, not just sentences.</div>
+      <div class="tools">Tools: Google Docs/Slides · screenshots · FigJam (free)</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">3b</span><span class="ttl">Case study — UX research</span><span class="meta">1–2 weekends</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>Your direct-training artifact. One small but <i>real</i> study beats a theoretical write-up.</p>
+      <ol>
+        <li><b>Write one research question</b> — e.g. "Where do first-time users of [app] get stuck in onboarding?" Narrow beats broad.</li>
+        <li><b>Recruit 5 participants.</b> Friends-of-friends count. Five is the recognized number for usability findings.</li>
+        <li><b>Run the sessions:</b> a 20-min moderated test over Google Meet (share screen, give tasks, stay quiet), or an unmoderated Maze test. Record with consent.</li>
+        <li><b>Synthesize:</b> dump observations onto sticky notes in FigJam, cluster into themes (affinity map), pull out the top 3 findings.</li>
+        <li><b>Turn findings into recommendations</b> — each finding paired with a concrete fix and a rough severity.</li>
+        <li><b>Write it up</b> with the affinity-map screenshot, the 3 findings, the recommendations, and what you'd do next with more time/budget.</li>
+      </ol>
+      <div class="out"><b>Output:</b> an end-to-end research story — question → method → synthesis → recommendation. Doubles as asset #5.</div>
+      <div class="tools">Tools: Google Meet/Forms · FigJam (free) · Maze (free tier)</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">3c</span><span class="ttl">Case study — your AI edge</span><span class="meta">1 weekend</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The asset that separates you from every other junior applicant. You've already built the thing — you just haven't written the story.</p>
+      <ol>
+        <li><b>Pick one AI no-code project</b> you've built and frame it as a <i>product</i>, not a demo.</li>
+        <li><b>Answer the product questions:</b> What problem? For whom? What did you build? What tools/prompts powered it? What worked, what didn't?</li>
+        <li><b>Add a "what I'd test next" section</b> — name the hypothesis and how you'd validate it. This shows product judgment, not just building.</li>
+        <li><b>Document the AI workflow explicitly:</b> the prompting approach, the no-code stack, any iterations. Hiring managers want to see you can <i>ship</i> with AI.</li>
+        <li><b>Include a screenshot or short Loom</b> of it working. Proof it's real.</li>
+      </ol>
+      <div class="out"><b>Output:</b> a "I ship with AI" case study — your single strongest differentiator across all three top-3 bets.</div>
+      <div class="tools">Tools: your existing build · Loom · a screenshot</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">4</span><span class="ttl">Messaging sample pack — for PMM / content</span><span class="meta">half day</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>One page that proves you can do marketing-adjacent work. Content and PMM recruiters want exactly this.</p>
+      <ol>
+        <li><b>Pick a product you love</b> (or invent a plausible one) and pretend you're launching it.</li>
+        <li><b>Write a positioning statement</b> — "For [audience] who [need], [product] is the [category] that [benefit], unlike [alternative]."</li>
+        <li><b>Draft 3 value props</b>, each as a benefit-led headline + one supporting line.</li>
+        <li><b>Write the landing-page hero:</b> headline, subhead, CTA button text.</li>
+        <li><b>Add 2 social posts + 1 launch email</b> — same message, adapted to each channel's voice.</li>
+      </ol>
+      <div class="out"><b>Output:</b> a one-page launch pack showing range from strategy (positioning) to execution (copy).</div>
+      <div class="tools">Tools: Google Docs · optional Canva for the hero mockup</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">5</span><span class="ttl">Insights deck — for research / CX / strategy</span><span class="meta">2–3 hrs</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>Mostly a repackage of asset 3b into the format insights and strategy teams actually present in.</p>
+      <ol>
+        <li><b>Slide 1 — the question</b> and why it mattered (the business context).</li>
+        <li><b>Slide 2 — method &amp; who you talked to</b> (participants, approach, in one tidy slide).</li>
+        <li><b>Slides 3–5 — the 3 findings,</b> one per slide, each with a supporting quote or data point.</li>
+        <li><b>Final slide — the recommendation</b> and projected impact. End on the "so what."</li>
+        <li><b>Design it plainly:</b> a clean template, lots of white space. Clarity reads as senior; decoration doesn't.</li>
+      </ol>
+      <div class="out"><b>Output:</b> a 6-slide deck proving you can turn raw research into a decision a team can act on.</div>
+      <div class="tools">Tools: Google Slides / Pitch · reuse 3b</div>
+    </div>
+  </details>
+
+  <details class="acc"><summary><span class="num">6</span><span class="ttl">Tuned CV + LinkedIn</span><span class="meta">half day</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The distribution layer. The best portfolio fails if the CV gets filtered out first.</p>
+      <ol>
+        <li><b>Mirror the keywords</b> of your target roles — pull the recurring terms from 10 real job posts and make sure they appear naturally in your CV and LinkedIn.</li>
+        <li><b>Lead each role/project with an outcome,</b> not a duty. "Ran a 5-user study that surfaced 3 onboarding fixes" beats "responsible for research."</li>
+        <li><b>Make AI fluency a named skill block</b> — list the specific tools (LLM, no-code builder, research tool), not a vague "AI" footnote.</li>
+        <li><b>Set the LinkedIn headline to your hybrid title</b> from asset #1, and add the portfolio URL to the featured/contact section.</li>
+        <li><b>Turn on "Open to work"</b> for your target titles and the Tel Aviv + remote regions.</li>
+      </ol>
+      <div class="out"><b>Output:</b> a keyword-tuned CV + LinkedIn that point straight at your portfolio — recruiters find people this way.</div>
+      <div class="tools">Tools: your portfolio URL · 10 target job posts</div>
+    </div>
+  </details>
   <h3>How to brainstorm work when you have no client projects</h3>
-  <ul class="clean">
-    <li><span class="k">Teardowns / redesigns</span> — pick a product with a visible flaw and fix it. Unlimited supply, shows judgment.</li>
-    <li><span class="k">Speculative projects</span>, clearly labeled — accepted for juniors as long as the <i>process</i> is real.</li>
-    <li><span class="k">Volunteer / nonprofit work</span> — a real stakeholder = a stronger story.</li>
-    <li><span class="k">"Rewrite of the week"</span> — post one microcopy teardown weekly. Doubles as portfolio <i>and</i> recruiter visibility.</li>
-    <li><span class="k">Reframe your AI builds</span> — each one already <i>is</i> a case study; you just haven't written the narrative.</li>
-    <li><span class="k">3 strong case studies beats 8 thin ones.</span> Depth signals seniority.</li>
-  </ul>
+  <p class="sub" style="margin-bottom:14px">The classic junior trap is "I have nothing to show." Here's how to generate legitimate material from scratch — click any tactic for how to run it.</p>
+  <p class="expand-controls"><a onclick="document.querySelectorAll('#portfolio .brainstorm').forEach(d=>d.open=true)">Expand all</a><a onclick="document.querySelectorAll('#portfolio .brainstorm').forEach(d=>d.open=false)">Collapse all</a></p>
+
+  <details class="acc brainstorm"><summary><span class="num">A</span><span class="ttl">Teardowns / redesigns</span><span class="meta">unlimited supply</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The highest-leverage source: pick a product with a visible flaw and fix it. No client, no permission needed, and it shows judgment.</p>
+      <ol>
+        <li><b>Keep a running list</b> of moments a product annoyed or confused you — that's your backlog.</li>
+        <li><b>Pick one and scope it tight:</b> a single flow or screen, not the whole app.</li>
+        <li><b>Diagnose before you fix</b> — write <i>why</i> it fails (unclear, no next step, wrong tone) so the work reads as thinking, not opinion.</li>
+        <li><b>Publish the before/after</b> with the principle behind each change. This <i>is</i> case study 3a.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> demonstrates the exact judgment hiring managers screen for, with zero dependency on anyone else.</div>
+    </div>
+  </details>
+
+  <details class="acc brainstorm"><summary><span class="num">B</span><span class="ttl">Speculative / concept projects</span><span class="meta">label them clearly</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>Invent a brief and execute it. Fully accepted for juniors — as long as the <i>process</i> is real and you label it as a concept.</p>
+      <ol>
+        <li><b>Write yourself a realistic brief:</b> a fake company, a real problem, constraints.</li>
+        <li><b>Do the actual work</b> — research, drafts, iterations — and document the messy middle, not just the polished end.</li>
+        <li><b>Mark it "concept project"</b> openly. Honesty reads as confidence; pretending it was real reads as risk.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> lets you target a specific role's exact deliverable when no real project exists yet.</div>
+    </div>
+  </details>
+
+  <details class="acc brainstorm"><summary><span class="num">C</span><span class="ttl">Volunteer / nonprofit work</span><span class="meta">real stakeholder</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>A real client, even an unpaid one, turns a teardown into a story with stakes and constraints.</p>
+      <ol>
+        <li><b>Find a small org</b> — a local NGO, a charity, a friend's early startup, or a platform like Catchafire.</li>
+        <li><b>Offer one scoped deliverable:</b> rewrite their onboarding emails, audit their site copy, run a small user study. Not "help with everything."</li>
+        <li><b>Capture the real constraints and feedback</b> — stakeholder pushback is exactly what makes the case study credible.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> "real client" outranks "concept" in an interview, and you get a reference.</div>
+    </div>
+  </details>
+
+  <details class="acc brainstorm"><summary><span class="num">D</span><span class="ttl">"Rewrite of the week" series</span><span class="meta">portfolio + reach</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>Post one short microcopy or research teardown every week on LinkedIn. It builds the portfolio <i>and</i> the visibility at the same time — recruiters find people this way.</p>
+      <ol>
+        <li><b>Commit publicly</b> to a weekly cadence and a fixed day (this is also the forcing function in section 06).</li>
+        <li><b>Keep each post tiny:</b> one before/after, one principle, one image. 15 minutes, not a weekend.</li>
+        <li><b>Tag the pattern, not the company</b> — critique the design choice, stay professional about the brand.</li>
+        <li><b>Collect the best 3–4</b> into a portfolio case study at month's end.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> compounding — each post is an artifact <i>and</i> a reach event that puts you in recruiters' feeds.</div>
+    </div>
+  </details>
+
+  <details class="acc brainstorm"><summary><span class="num">E</span><span class="ttl">Reframe your AI builds</span><span class="meta">already done</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>You don't need new work here — each AI no-code project you've shipped already <i>is</i> a case study. You just haven't written the narrative around it.</p>
+      <ol>
+        <li><b>List every AI/no-code thing you've built,</b> however small.</li>
+        <li><b>Reframe each as content / conversation / research,</b> not "design" — this neutralizes the Figma gap and lands where demand is.</li>
+        <li><b>Apply the asset 3c structure</b> (problem → user → build → what's next) to your strongest one.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> turns work you've already done into your single biggest differentiator, for free.</div>
+    </div>
+  </details>
+
+  <details class="acc brainstorm"><summary><span class="num">F</span><span class="ttl">Depth over breadth</span><span class="meta">the rule</span><span class="chev">›</span></summary>
+    <div class="body">
+      <p>The meta-rule that governs all of the above.</p>
+      <ol>
+        <li><b>Aim for 3 strong case studies, not 8 thin ones</b> — depth signals seniority; a long list of shallow pieces signals the opposite.</li>
+        <li><b>Show the messy middle</b> in each — the dead ends and the changes you made are what prove you can think.</li>
+        <li><b>Cut anything you can't speak to confidently</b> for 5 minutes in an interview.</li>
+      </ol>
+      <div class="out"><b>Why it works:</b> interviewers probe depth; a few deep stories survive scrutiny that a wide-but-shallow portfolio won't.</div>
+    </div>
+  </details>
 </div></section>
 
 <section id="skills"><div class="wrap">
   <h2><span class="n">05</span>Hard skills to learn — ranked by ROI</h2>
   <p class="sub">You don't need to become a Figma expert. You need <i>enough</i> tool fluency to not get filtered out — then lean into words, research, and AI-shipping.</p>
+  <p class="sub" style="margin-bottom:18px">Each skill below links to a free video tutorial (▶) and the official course or guide. Pick the tier that matches your top-3 bet and start at the top — don't try to do all three tiers at once.</p>
   <div class="tiers">
     <div class="tier t1">
       <h4>Tier 1 — learn now</h4>
       <div class="lbl">High value · low effort</div>
-      <ul>
-        <li><b>Figma — basic literacy only.</b> Open files, comment, navigate, FigJam. A weekend. Don't over-invest.</li>
-        <li><b>One research tool:</b> Dovetail (synthesis) or Maze (testing). Run one study, name it.</li>
-        <li><b>AI tooling, made explicit:</b> prompt engineering + an LLM + one no-code builder (Lovable, Bolt, v0). Your edge — name the tools.</li>
-      </ul>
+
+      <div class="skill">
+        <div class="sname">Figma — basic literacy only</div>
+        <div class="sdesc">Open files, comment, navigate, use FigJam. A weekend. Don't over-invest — you're clearing a filter, not becoming a designer.</div>
+        <div class="lk">
+          <a class="yt" href="https://www.youtube.com/results?search_query=figma+tutorial+for+beginners+2024" target="_blank" rel="noopener">▶ Beginner video</a>
+          <a class="doc" href="https://www.figma.com/resource-library/" target="_blank" rel="noopener">Figma resource library</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">One research tool — Dovetail or Maze</div>
+        <div class="sdesc">Dovetail for synthesis, Maze for unmoderated testing. Run one study, name the tool on your CV.</div>
+        <div class="lk">
+          <a class="yt" href="https://www.youtube.com/results?search_query=dovetail+research+tutorial" target="_blank" rel="noopener">▶ Dovetail video</a>
+          <a class="doc" href="https://dovetail.com/" target="_blank" rel="noopener">Dovetail</a>
+          <a class="doc" href="https://maze.co/guides/usability-testing/" target="_blank" rel="noopener">Maze usability guide</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">AI tooling, made explicit</div>
+        <div class="sdesc">Prompt engineering + an LLM + one no-code builder (Lovable, Bolt, v0). This is your edge — learn to name and show the specific tools.</div>
+        <div class="lk">
+          <a class="yt" href="https://www.youtube.com/results?search_query=prompt+engineering+tutorial+for+beginners" target="_blank" rel="noopener">▶ Prompting video</a>
+          <a class="doc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">Anthropic prompt guide</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=lovable+ai+app+build+tutorial" target="_blank" rel="noopener">▶ No-code build video</a>
+        </div>
+      </div>
     </div>
+
     <div class="tier">
       <h4>Tier 2 — high leverage</h4>
       <div class="lbl">For adjacent roles</div>
-      <ul>
-        <li><b>Analytics:</b> GA4, Amplitude, or Mixpanel basics (PMM, CX, product).</li>
-        <li><b>Notion / Confluence</b> + a content-ops mindset.</li>
-        <li><b>SEO + content marketing</b> — HubSpot Academy free certs. Fast and resume-legible.</li>
-      </ul>
+
+      <div class="skill">
+        <div class="sname">SEO + content marketing</div>
+        <div class="sdesc">Free, fast, and resume-legible HubSpot certs. The single highest-ROI add for the content-marketing bet.</div>
+        <div class="lk">
+          <a class="doc" href="https://academy.hubspot.com/courses/content-marketing" target="_blank" rel="noopener">HubSpot content cert</a>
+          <a class="doc" href="https://academy.hubspot.com/courses/seo-training" target="_blank" rel="noopener">HubSpot SEO course</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=seo+for+beginners+full+course" target="_blank" rel="noopener">▶ SEO crash course</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">Analytics — GA4 basics</div>
+        <div class="sdesc">Enough to talk funnels and metrics in PMM, CX, and product interviews. The free Google course is the credential to name.</div>
+        <div class="lk">
+          <a class="doc" href="https://analytics.google.com/analytics/academy/" target="_blank" rel="noopener">Google Analytics Academy</a>
+          <a class="doc" href="https://skillshop.withgoogle.com/" target="_blank" rel="noopener">Google Skillshop</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=google+analytics+4+ga4+tutorial+for+beginners" target="_blank" rel="noopener">▶ GA4 video</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">Notion + content-ops mindset</div>
+        <div class="sdesc">The default home for content and research ops. Learn databases, templates, and how to run a content pipeline.</div>
+        <div class="lk">
+          <a class="doc" href="https://www.notion.com/help/guides" target="_blank" rel="noopener">Notion guides</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=notion+for+beginners+full+tutorial" target="_blank" rel="noopener">▶ Notion video</a>
+        </div>
+      </div>
     </div>
+
     <div class="tier">
       <h4>Tier 3 — situational</h4>
       <div class="lbl">Role-dependent</div>
-      <ul>
-        <li><b>SQL basics</b> — big differentiator for research/analyst roles.</li>
-        <li><b>Hebrew↔English UX writing</b> — marketable in this market specifically.</li>
-        <li><b>Webflow / Framer</b> — if leaning into content + light build.</li>
-      </ul>
+
+      <div class="skill">
+        <div class="sname">SQL basics</div>
+        <div class="sdesc">A real differentiator for research/analyst-leaning roles, modest effort. Just SELECT, WHERE, JOIN, GROUP BY.</div>
+        <div class="lk">
+          <a class="doc" href="https://www.khanacademy.org/computing/computer-programming/sql" target="_blank" rel="noopener">Khan Academy SQL</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=sql+full+course+for+beginners+freecodecamp" target="_blank" rel="noopener">▶ SQL full course</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">Conversation-design tooling</div>
+        <div class="sdesc">For the conversation-designer bet — learn Voiceflow to build and demo a bot flow.</div>
+        <div class="lk">
+          <a class="doc" href="https://www.voiceflow.com/learn" target="_blank" rel="noopener">Voiceflow Learn</a>
+          <a class="yt" href="https://www.youtube.com/results?search_query=voiceflow+tutorial+for+beginners" target="_blank" rel="noopener">▶ Voiceflow video</a>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="sname">Webflow / Framer</div>
+        <div class="sdesc">If you lean into content + light build. Webflow University is one of the best free courses on the web.</div>
+        <div class="lk">
+          <a class="doc" href="https://university.webflow.com/" target="_blank" rel="noopener">Webflow University</a>
+          <a class="doc" href="https://www.framer.com/academy/" target="_blank" rel="noopener">Framer Academy</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="note"><b>Don't spend time on:</b> deep visual/UI design, motion, design-systems mastery. That's chasing the gap you already decided not to compete in.</div>
